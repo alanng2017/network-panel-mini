@@ -1,0 +1,14 @@
+<view class="container">
+  <view class="device-list">
+    <view class="device-item" wx:for="{{devices}}" wx:key="mac">
+      <view class="device-icon-container">
+        <text class="device-icon">{{item.type === 'Wi-Fi' ? '📶' : '🔌'}}</text>
+      </view>
+      <view class="device-info">
+        <text class="device-name">{{item.name}}</text>
+        <text class="device-sub">{{item.ip}} · {{item.mac}}</text>
+        <text class="device-meta">{{item.type}} · 信号: {{item.rssi}}dBm · 流量: {{item.traffic}}</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,33 @@
+<view class="container">
+  <view class="form-group">
+    <text class="form-label">API 主机</text>
+    <input class="form-input" value="{{apiHost}}" bindinput="onApiHostChange" placeholder="http://192.168.66.1" />
+  </view>
+
+  <view class="form-group">
+    <text class="form-label">API 路径</text>
+    <input class="form-input" value="{{apiPath}}" bindinput="onApiPathChange" placeholder="/cgi-bin/luci/nradio/status/runtime/..." />
+  </view>
+
+  <view class="form-group">
+    <text class="form-label">Cookie</text>
+    <input class="form-input" value="{{cookie}}" bindinput="onCookieChange" placeholder="sysauth=..." />
+  </view>
+
+  <view class="form-group">
+    <text class="form-label">刷新间隔 (秒)</text>
+    <input class="form-input" type="number" value="{{refreshInterval}}" bindinput="onIntervalChange" />
+  </view>
+
+  <button class="save-btn" bindtap="saveConfig">保存配置</button>
+  <button class="test-btn" bindtap="testConnection">测试连接</button>
+
+  <view class="info-card">
+    <text class="info-title">说明</text>
+    <text class="info-content">
+      API 主机: 你的随身 WiFi 管理后台地址 (如 http://192.168.66.1)
+      Cookie: 从浏览器登录后的响应中获取 sysauth 值
+      刷新间隔: 数据自动刷新频率
+    </text>
+  </view>
+</view>

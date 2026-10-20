@@ -1,0 +1,50 @@
+<view class="container">
+  <view class="card">
+    <view class="card-header">
+      <text class="card-title">设备串号</text>
+    </view>
+    
+    <view class="info-item">
+      <text class="info-label">IMEI</text>
+      <view class="info-value-container">
+        <text class="info-value">{{imei || '--'}}</text>
+        <view class="copy-btn" data-field="imei" bindtap="copyField">📋</view>
+      </view>
+    </view>
+
+    <view class="info-item">
+      <text class="info-label">IMSI</text>
+      <view class="info-value-container">
+        <text class="info-value">{{imsi || '--'}}</text>
+        <view class="copy-btn" data-field="imsi" bindtap="copyField">📋</view>
+      </view>
+    </view>
+
+    <view class="info-item">
+      <text class="info-label">ICCID</text>
+      <view class="info-value-container">
+        <text class="info-value">{{iccid || '--'}}</text>
+        <view class="copy-btn" data-field="iccid" bindtap="copyField">📋</view>
+      </view>
+    </view>
+
+    <button class="refresh-btn" bindtap="queryImei">🔄 刷新数据</button>
+  </view>
+
+  <view class="card">
+    <view class="card-header">
+      <text class="card-title">修改 IMEI</text>
+    </view>
+    
+    <view class="form-group">
+      <text class="form-label">新 IMEI (15 位)</text>
+      <input class="form-input" value="{{newImei}}" bindinput="onNewImeiChange" placeholder="如：867517067125059" />
+    </view>
+
+    <view class="info-box">
+      <text class="info-text">IMEI 必须是 15 位数字，且符合 Luhn 校验算法。修改后需要重启 modem 或设备才能生效。</text>
+    </view>
+
+    <button class="submit-btn" bindtap="changeImei">提交修改</button>
+  </view>
+</view>

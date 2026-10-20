@@ -1,0 +1,22 @@
+{
+  "description": "网络面板 - 随身WiFi管理",
+  "projectname": "network-panel",
+  "appid": "touristappid",
+  "compileType": "miniprogram",
+  "libVersion": "3.5.0",
+  "setting": {
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "urlCheck": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    }
+  },
+  "network": {
+    "urlCheck": false
+  }
+}

@@ -1,0 +1,84 @@
+<view class="container">
+  <view class="card">
+    <view class="card-header">
+      <text class="card-title">当前锁定状态</text>
+    </view>
+    <view class="lock-status" wx:if="{{currentStatus && currentStatus.cfg && currentStatus.cfg.lte && currentStatus.cfg.lte.EARFCN != '' && currentStatus.cfg.lte.EARFCN != null }}">
+      <view class="lock-row">
+        <text class="lock-label">LTE 频段</text>
+        <text class="lock-value">{{currentStatus.cfg.lte.BAND || '未锁定'}}</text>
+      </view>
+      <view class="lock-row">
+        <text class="lock-label">LTE EARFCN</text>
+        <text class="lock-value">{{currentStatus.cfg.lte.EARFCN || '未锁定'}}</text>
+      </view>
+      <view class="lock-row">
+        <text class="lock-label">LTE PCI</text>
+        <text class="lock-value">{{currentStatus.cfg.lte.PCI || '未锁定'}}</text>
+      </view>
+      <view class="lock-row">
+        <text class="lock-label">NR 频段</text>
+        <text class="lock-value">{{currentStatus.cfg.nr.BAND || '未锁定'}}</text>
+      </view>
+      <view class="lock-row">
+        <text class="lock-label">NR EARFCN</text>
+        <text class="lock-value">{{currentStatus.cfg.nr.EARFCN || '未锁定'}}</text>
+      </view>
+      <view class="lock-row">
+        <text class="lock-label">NR PCI</text>
+        <text class="lock-value">{{currentStatus.cfg.nr.PCI || '未锁定'}}</text>
+      </view>
+    </view>
+    <view class="lock-status-empty" wx:else>
+      <text class="empty-text">当前未锁定频段/小区</text>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="card-header">
+      <text class="card-title">锁定配置</text>
+    </view>
+
+    <view class="form-group">
+      <text class="form-label">频段锁定模式</text>
+      <picker mode="selector" value="0" range="{{['自动', '手动']}}" bindchange="onEarfreqModeChange">
+        <view class="picker-view">{{lockConfig.earfreq_mode == 'auto' ? '自动' : '手动'}}</view>
+      </picker>
+    </view>
+
+    <view class="form-group">
+      <text class="form-label">5G 频段</text>
+      <picker mode="selector" value="0" range="{{['Band 5', 'Band 3', 'Band 1', 'Band 40', 'Band 41', 'Band 78']}}" bindchange="onBand5Change">
+        <view class="picker-view">{{lockConfig.band5}}</view>
+      </picker>
+    </view>
+
+    <view class="form-group">
+      <text class="form-label">自定义频率 (MHz)</text>
+      <input class="form-input" value="{{lockConfig.custom_freq}}" bindinput="onCustomFreqChange" placeholder="如: 2452" />
+    </view>
+
+    <view class="form-group">
+      <text class="form-label">LTE EARFCN</text>
+      <input class="form-input" value="{{lockConfig.earfcn4}}" bindinput="onEarfcn4Change" placeholder="如: 2452" />
+    </view>
+
+    <view class="form-group">
+      <text class="form-label">NR EARFCN</text>
+      <input class="form-input" value="{{lockConfig.earfcn5}}" bindinput="onEarfcn5Change" placeholder="如: 524000" />
+    </view>
+
+    <view class="form-group">
+      <text class="form-label">LTE PCI</text>
+      <input class="form-input" value="{{lockConfig.pci4}}" bindinput="onPci4Change" placeholder="如: 76" />
+    </view>
+
+    <view class="form-group">
+      <text class="form-label">NR PCI</text>
+      <input class="form-input" value="{{lockConfig.pci5}}" bindinput="onPci5Change" placeholder="如: 76" />
+    </view>
+
+    <button class="apply-btn" bindtap="applyLock">应用锁定</button>
+    <button class="scan-btn" bindtap="scanCell">扫描邻区</button>
+  </view>
+</view>

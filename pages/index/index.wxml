@@ -1,0 +1,107 @@
+<view class="container">
+  <view class="loading">
+    <view wx:if="{{loading}}" class="loading-text">加载中...</view>
+  </view>
+
+  <view class="status-card" wx:if="{{!loading}}">
+    <view class="card-header">
+      <view class="status-title">设备状态</view>
+    </view>
+
+    <view class="stat-grid">
+      <view class="stat-item">
+        <text class="stat-value">{{global.cpu_percent}}%</text>
+        <text class="stat-label">CPU 使用</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-value">{{global.mem_percent}}%</text>
+        <text class="stat-label">内存使用</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-value">{{global.device_temp}}°C</text>
+        <text class="stat-label">设备温度</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-value">{{uptime}}</text>
+        <text class="stat-label">运行时间</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="cell-card" wx:if="{{!loading}}">
+    <view class="card-header">
+      <view class="status-title">蜂窝信号</view>
+      <view class="signal-indicator {{signalLevel}}">{{signalLabel}}</view>
+    </view>
+
+    <view class="signal-info">
+      <view class="signal-row">
+        <text class="signal-label">RSRP</text>
+        <text class="signal-value">{{cpe.rsrp}} dBm</text>
+      </view>
+      <view class="signal-row">
+        <text class="signal-label">SINR</text>
+        <text class="signal-value">{{cpe.sinr}} dB</text>
+      </view>
+      <view class="signal-row">
+        <text class="signal-label">频段</text>
+        <text class="signal-value">Band {{cpe.band}}</text>
+      </view>
+      <view class="signal-row">
+        <text class="signal-label">网络</text>
+        <text class="signal-value">{{cpe.mode}} ({{cpe.simmode}})</text>
+      </view>
+      <view class="signal-row">
+        <text class="signal-label">信号速率</text>
+        <text class="signal-value">DL: {{cpe.NR5G_AMBR_DL}}kbps / UL: {{cpe.NR5G_AMBR_UL}}kbps</text>
+      </view>
+    </view>
+
+    <view class="cell-details">
+      <view class="detail-row">
+        <text class="detail-label">IMSI</text>
+        <text class="detail-value">{{cpe.imsi}}</text>
+      </view>
+      <view class="detail-row">
+        <text class="detail-label">IMSI</text>
+        <text class="detail-value">{{cpe.imei}}</text>
+      </view>
+      <view class="detail-row">
+        <text class="detail-label">运营商</text>
+        <text class="detail-value">{{cpe.isp}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="wifi-card" wx:if="{{!loading}}">
+    <view class="card-header">
+      <view class="status-title">Wi-Fi 配置</view>
+    </view>
+
+    <view class="wifi-row">
+      <text class="wifi-label">SSID</text>
+      <view class="wifi-value-container">
+        <text class="wifi-value">{{wlan.ssid}}</text>
+        <image class="copy-icon" src="/images/copy.png" bindtap="copySSID"></image>
+      </view>
+    </view>
+
+    <view class="wifi-row">
+      <text class="wifi-label">密码</text>
+      <view class="wifi-value-container">
+        <text class="wifi-value">{{wlan.key}}</text>
+        <image class="copy-icon" src="/images/copy.png" bindtap="copyKey"></image>
+      </view>
+    </view>
+
+    <view class="wifi-row">
+      <text class="wifi-label">2.4G 信道</text>
+      <text class="wifi-value">{{wlan.channel}}</text>
+    </view>
+
+    <view class="wifi-row">
+      <text class="wifi-label">5G 信道</text>
+      <text class="wifi-value">{{wlan.channel}}</text>
+    </view>
+  </view>
+</view>

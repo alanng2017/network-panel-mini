@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/devices/devices",
+    "pages/settings/settings",
+    "pages/lock/lock",
+    "pages/lock/imei"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1890ff",
+    "navigationBarTitleText": "网络面板",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#1890ff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "状态"
+      },
+      {
+        "pagePath": "pages/devices/devices",
+        "text": "设备"
+      },
+      {
+        "pagePath": "pages/lock/lock",
+        "text": "锁频段"
+      },
+      {
+        "pagePath": "pages/lock/imei",
+        "text": "串号"
+      },
+      {
+        "pagePath": "pages/settings/settings",
+        "text": "设置"
+      }
+    ]
+  }
+}

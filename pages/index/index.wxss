@@ -1,0 +1,111 @@
+.container {
+  padding: 20rpx;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+}
+
+.loading {
+  text-align: center;
+  padding: 40rpx;
+  color: #999;
+}
+
+.status-card, .cell-card, .wifi-card {
+  background: #ffffff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.status-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+}
+
+.signal-indicator {
+  padding: 4rpx 16rpx;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+  color: #ffffff;
+}
+
+.signal-indicator.good {
+  background-color: #52c41a;
+}
+
+.signal-indicator.medium {
+  background-color: #faad14;
+}
+
+.signal-indicator.weak {
+  background-color: #f5222d;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20rpx;
+}
+
+.stat-item {
+  background: #f8f9fa;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #1890ff;
+  display: block;
+}
+
+.stat-label {
+  font-size: 24rpx;
+  color: #8c8c8c;
+  margin-top: 8rpx;
+  display: block;
+}
+
+.signal-info, .cell-details {
+  border-top: 1rpx solid #f0f0f0;
+  padding-top: 16rpx;
+}
+
+.signal-row, .detail-row, .wifi-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12rpx 0;
+  font-size: 28rpx;
+}
+
+.signal-label, .detail-label, .wifi-label {
+  color: #8c8c8c;
+}
+
+.signal-value, .detail-value, .wifi-value {
+  color: #333333;
+  font-weight: 500;
+}
+
+.wifi-value-container {
+  display: flex;
+  align-items: center;
+}
+
+.copy-icon {
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 12rpx;
+}
